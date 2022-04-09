@@ -1,7 +1,7 @@
 [package]
 name = "uwu-os"
 version = "0.1.0"
-authors = ["Author Name bready16@gmail.com"]
+authors = ["Anon bready16@gmail.com"]
 edition = "2018"
 
 # the profile used for `cargo build`
