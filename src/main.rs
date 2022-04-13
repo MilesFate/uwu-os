@@ -4,6 +4,7 @@
 #![no_main] // disable all Rust-level entry points
 
 use core::panic::PanicInfo;
+mod vga_buffer;
 
 /// This function is called on panic.
 #[panic_handler]
@@ -11,7 +12,7 @@ fn panic(_info: &PanicInfo) -> ! {
     loop {}
 }
 
-static HELLO: &[u8] = b"hello friend? pog";
+static HELLO: &[u8] = b"uwu nuzzle your tummy wummy";
 
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
@@ -20,9 +21,8 @@ pub extern "C" fn _start() -> ! {
     for (i, &byte) in HELLO.iter().enumerate() {
         unsafe {
             *vga_buffer.offset(i as isize * 2) = byte;
-            *vga_buffer.offset(i as isize * 2 + 1) = 0xb;
+            *vga_buffer.offset(i as isize * 2 + 1) = 0xd; // Yup, that tasted purple ^_^
         }
     }
-
     loop {}
 }
